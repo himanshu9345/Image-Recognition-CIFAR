@@ -18,17 +18,18 @@ class_labels = [
 ]
 
 # Load the json file that contains the model's structure
-f = Path("Models/model_structure.json")
+f = Path("Models\\model_structure.json")
+print(f.read_text())
 model_structure = f.read_text()
 
 # Recreate the Keras model object from the json data
 model = model_from_json(model_structure)
 
 # Re-load the model's trained weights
-model.load_weights("Models/model_weights.h5")
+model.load_weights("Models\\model_weights.h5")
 
 # Load an image file to test, resizing it to 32x32 pixels (as required by this model)
-img = image.load_img("frog.png", target_size=(32, 32))
+img = image.load_img("Images\\frog.png", target_size=(32, 32))
 
 # Convert the image to a numpy array
 image_to_test = image.img_to_array(img)
